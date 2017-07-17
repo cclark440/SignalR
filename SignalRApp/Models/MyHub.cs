@@ -2,6 +2,7 @@
 using Microsoft.AspNet.SignalR.Hubs;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -15,9 +16,10 @@ namespace SignalRApp.Models
             Clients.All.Announce(msg);
         }
 
-        public DateTime GetServerDateTime()
+        public string GetServerDateTime()
         {
-            return DateTime.Now;
+
+            return DateTime.Now.ToString(new CultureInfo("en-US"));
         }
     }
 }
